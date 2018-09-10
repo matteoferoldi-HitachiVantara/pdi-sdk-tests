@@ -5,7 +5,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <properties>
-    <pentaho_sdk_version>9.0.0.0-91</pentaho_sdk_version>
+    <pentaho_sdk_version>9.0.0.0-186</pentaho_sdk_version>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
   </properties>
