@@ -5,17 +5,14 @@ import org.pentaho.di.job.Job;
 import org.pentaho.di.trans.Trans;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
-import sun.rmi.runtime.Log;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 
-public class RunTransformations extends SDKBaseTest {
+public class Run extends SDKBaseTest {
 
-  private static final String PENTAHO_HOME = "/Applications/Pentaho";
-  private static final String PDI_SAMPLES_HOME = PENTAHO_HOME + "/design-tools/data-integration/samples/";
+  private static final String PDI_SAMPLES_HOME = "/Applications/Pentaho/design-tools/data-integration/samples/";
   private SoftAssert softAssert = new SoftAssert();
 
   @Test
@@ -24,10 +21,15 @@ public class RunTransformations extends SDKBaseTest {
     Map<String, String> parameters = new HashMap<String, String>();
 
     // Example with parameters
-    parameters.put( "NR_OF_ROWS", "15" );
+    parameters.put( "NR_OF_ROWS", "30" );
     runTransformation( "data-generator\\Generate customer data.ktr", parameters );
 
-    runJobs( "job1.kjb" );
+    runJobs( "parallel synchronized jobs\\SyncJobs Example1.kjb" );
+
+    // Run one or more transformations
+    //runTransformation( "data-generator\\Generate customer data.ktr", parameters );
+    //runTransformation( "data-generator\\Generate customer data.ktr", parameters );
+    //runJobs( "parallel synchronized jobs\\SyncJobs Example1.kjb" );
 
     softAssert.assertAll();
   }
